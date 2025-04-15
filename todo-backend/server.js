@@ -12,14 +12,11 @@ const allowedOrigins = ['https://todo-mern-app-backend-server.vercel.app'];
 config();
 const app = express();
 
-app.use(cors({
-  origin: '*'
-}));
 
-// app.use(cors({
-//   origin: allowedOrigins,
-//   credentials: true,
-// }));
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 
 
 //MongoDB connection
@@ -38,5 +35,8 @@ app.get('/', (req, res) => {
   
 
 //App listening port for local development
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+export default app;
+
