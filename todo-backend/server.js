@@ -13,9 +13,13 @@ config();
 const app = express();
 
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
+  origin: '*'
 }));
+
+// app.use(cors({
+//   origin: allowedOrigins,
+//   credentials: true,
+// }));
 
 
 //MongoDB connection
