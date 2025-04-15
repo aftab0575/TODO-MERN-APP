@@ -1,0 +1,98 @@
+.home-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  
+    h2 {
+      text-align: center;
+      color: #000000;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+  
+    .logout-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+  
+    .guest-message {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 1.3rem;
+      color: #555;
+    }
+
+    .guest-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 3rem;
+    
+      .guest-message {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #444;
+      }
+    
+      .login-btn {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    
+        &:hover {
+          background-color: #0056b3;
+          transform: scale(1.03);
+        }
+    
+        &:active {
+          transform: scale(0.97);
+        }
+    
+        @media (max-width: 600px) {
+          width: 100%;
+          text-align: center;
+          font-size: 1.05rem;
+          padding: 0.9rem 1.2rem;
+        }
+      }
+    }
+    
+  
+    // 📱 Mobile responsiveness
+    @media (max-width: 600px) {
+      padding: 1.5rem 1rem;
+  
+      h2 {
+        font-size: 1.4rem;
+      }
+  
+      .guest-message {
+        font-size: 1.1rem;
+        margin-top: 2rem;
+      }
+    }
+  
+    @media (max-width: 400px) {
+      h2 {
+        font-size: 1.2rem;
+      }
+  
+      .guest-message {
+        font-size: 1rem;
+      }
+    }
+  }
+  

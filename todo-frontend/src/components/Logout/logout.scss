@@ -1,0 +1,30 @@
+.logout-btn {
+    background-color: #130485;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+  
+    &:hover {
+      background-color: #d6050f;
+      transform: scale(1.05);
+    }
+  
+    &:active {
+      transform: scale(0.98);
+    }
+  
+    @media (max-width: 600px) {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1.05rem;
+      text-align: center;
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+  
