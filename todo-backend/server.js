@@ -19,6 +19,6 @@ app.use(json());
 app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
 
-//App listening port for local developement
+//App listening port for local development
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
