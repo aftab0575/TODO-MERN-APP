@@ -6,8 +6,17 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import todoRoutes from './routes/todoRoutes.js';
 
+
+const allowedOrigins = ['https://todo-mern-app-backend-server.vercel.app'];
+
 config();
 const app = express();
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
 
 //MongoDB connection
 connectDB();
