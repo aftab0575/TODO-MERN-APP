@@ -7,7 +7,7 @@ import authRoutes from './routes/authRoutes.js';
 import todoRoutes from './routes/todoRoutes.js';
 
 
-const allowedOrigins = ['https://todo-mern-app-backend-server.vercel.app'];
+const allowedOrigins = ['https://todo-mern-app-frontend.vercel.app'];
 
 config();
 const app = express();
