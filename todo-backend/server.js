@@ -6,34 +6,39 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import todoRoutes from './routes/todoRoutes.js';
 
-// ✅ Load env vars
 config();
-
 const app = express();
 
-// ✅ Setup proper CORS
+// ✅ CORS must be FIRST and apply to all routes/methods
 const allowedOrigins = ['https://todo-mern-app-frontend.vercel.app'];
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true,
+  credentials: true
 }));
 
-// ✅ Body parser
+app.options('*', cors()); // ✅ allow preflight requests from all routes
+
 app.use(express.json());
 
-// ✅ MongoDB connection
+// ✅ MongoDB
 connectDB();
 
 // ✅ Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
 
-// ✅ Optional test route
+// ✅ Root route
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-// ❌ No app.listen on Vercel
+// ✅ Export for Vercel
 export default app;
