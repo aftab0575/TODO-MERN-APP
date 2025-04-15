@@ -1,4 +1,4 @@
-import express, { json } from 'express';
+import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
 import connectDB from './config/db.js';
@@ -6,31 +6,34 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import todoRoutes from './routes/todoRoutes.js';
 
-const allowedOrigins = ['https://todo-mern-app-frontend.vercel.app']; // ✅ frontend
-
+// ✅ Load env vars
 config();
+
 const app = express();
 
-// ✅ Proper CORS config
+// ✅ Setup proper CORS
+const allowedOrigins = ['https://todo-mern-app-frontend.vercel.app'];
+
 app.use(cors({
   origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
 }));
 
+// ✅ Body parser
+app.use(express.json());
+
 // ✅ MongoDB connection
 connectDB();
-
-// ✅ Body parser
-app.use(json());
 
 // ✅ Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
 
-// ✅ Default test route
+// ✅ Optional test route
 app.get('/', (req, res) => {
-  res.send('Welcome, API is running...');
+  res.send('API is running...');
 });
 
-// ❌ Don't use app.listen() on Vercel
+// ❌ No app.listen on Vercel
 export default app;
